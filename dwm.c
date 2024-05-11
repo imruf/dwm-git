@@ -702,6 +702,7 @@ drawbar(Monitor *m)
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
+	unsigned int a = 0, s = 0;
 	Client *c;
 
 	if (!m->showbar)
@@ -729,6 +730,15 @@ drawbar(Monitor *m)
 				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 				urg & 1 << i);
 		x += w;
+	}
+	if(m->lt[m->sellt]->arrange == monocle) {
+		for(a = 0, s = 0, c= nexttiled(m->clients); c; c= nexttiled(c->next), a++)
+			if(c == m->stack)
+				s = a;
+		if(!s && a)
+			s = a;
+		if(s && a)
+			snprintf(m->ltsymbol, sizeof m->ltsymbol, "%d/%d", s, a);
 	}
 	w = TEXTW(m->ltsymbol);
 	drw_setscheme(drw, scheme[SchemeNorm]);
@@ -1113,14 +1123,8 @@ maprequest(XEvent *e)
 void
 monocle(Monitor *m)
 {
-	unsigned int n = 0;
 	Client *c;
 
-	for (c = m->clients; c; c = c->next)
-		if (ISVISIBLE(c))
-			n++;
-	if (n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
 }
