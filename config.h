@@ -12,12 +12,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static const char dmenufont[]       = { "mono:pixelsize=14:antialias=true:autohint=true" };
-static const char Normfg[]      = "#ecc48d"; /* layout indicator and status text color #acb4c2 #f5f5dc #d79921 #ebcb8b #999999 #bf616a */
-static const char Normbg[]      = "#011627"; /* border color #011627 #011111 #111111 #073642 #222222*/
+static const char Normfg[]      = "#acb4c2"; /* layout indicator and status text color #acb4c2 #f5f5dc #d79921 #ebcb8b #999999 #bf616a */
+static const char Normbg[]      = "#011627"; /* bar color #011627 #011111 #111111 #073642 #222222*/
 static const char Normbd[]      = "#444444";
 static const char Selbg[]       = "#000000"; /* #000000 #005577*/
 static const char Selfg[]       = "#eeeeee"; /* tag and windwo name color #eeeeee */
-static const char Selbd[]       = "#770000"; /* bar color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
+static const char Selbd[]       = "#c3ccdc"; /* active border color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
