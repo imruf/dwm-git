@@ -46,15 +46,13 @@ typedef struct {
 const char *spcmd1[] = {TERMINAL, "-n", "pad", "-g", "110x18", "-e", "pad_tmux", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {"kate", "-s", "notes", NULL };
-const char *spcmd4[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
-const char *spcmd5[] = {TERMINAL, "-n", "music", "-g", "110x18", "-e", "ncmpcpp", NULL };
+const char *spcmd4[] = {TERMINAL, "-n", "music", "-g", "110x18", "-e", "ncmpcpp", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"pad",      spcmd1},
 	{"nnn",         spcmd2},
 	{"kate",        spcmd3},
-	{"sdcv",        spcmd4},
-	{"music",     spcmd5},
+	{"music",     spcmd4},
 };
 
 /* tagging */
@@ -79,8 +77,7 @@ static const Rule rules[] = {
 { NULL,		                 "pad",    NULL,               SPTAG(0),  1,			                     -1 },
 { NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
 { "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
-{ "konsole",                 NULL,     NULL,               SPTAG(3),  1,                       0,        -1 },
-{ NULL,                      "music",  NULL,               SPTAG(4),  1,                       0,        -1 },
+{ NULL,                      "music",  NULL,               SPTAG(3),  1,                       0,        -1 },
 { "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
@@ -237,8 +234,7 @@ static Key keys[] = {
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
 	{ MODKEY, 			            XK_o,             togglescratch,  {.ui = 1 } },
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 2 } },
-	{ MODKEY|ShiftMask, 	        XK_m,             togglescratch,  {.ui = 3 } },
-	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 4 } },
+	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 3 } },
 /* gapps */
 	{ ControlMask,                       XK_KP_Subtract,  setgaps,        {.i = -5 } },
 	{ ControlMask,                       XK_KP_Add,       setgaps,        {.i = +5 } },

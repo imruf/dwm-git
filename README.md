@@ -131,7 +131,6 @@ App Bindings
     Scratchpad:
         - dropdown:                          Super+/
         - kate:                             Super+n
-        - sdcv:                              Alt+Shift+m
 
     dmenu: 
       - dmenu:                               Alt+;
