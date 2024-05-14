@@ -1,4 +1,5 @@
-dwm - dynamic window manager Version: 6.3
+dwm - : git version to maintain upgrade from suckless
+
 ---
  dwm is an extremely fast, small, and dynamic window manager for X.
  
