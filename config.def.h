@@ -132,6 +132,7 @@ static const char *downvol[] = { "volkeys", "down", NULL };
 static const char *mutevol[] = { "volkeys", "mute", NULL };
 static const char *brinc[] = { "blkeys", "up", NULL };
 static const char *brdec[] = { "blkeys", "down", NULL };
+static const char *broff[] = { "blkeys", "off", NULL };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 /* static const char *rbang[] = { "rbang", NULL }; */
@@ -246,6 +247,7 @@ static Key keys[] = {
 /* media keys */
     { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
     { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
+    { 0,                     XF86XK_ScreenSaver,       spawn,         {.v = broff } },
     { 0,                     XF86XK_AudioLowerVolume,  spawn,         {.v = downvol } },
     { 0,                     XF86XK_AudioMute,         spawn,         {.v = mutevol } },
     { 0,                     XF86XK_AudioRaiseVolume,  spawn,         {.v = upvol   } },

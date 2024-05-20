@@ -116,6 +116,7 @@ System
     Brightness:
       - Inc:                                 Fn+BrightnessUp
       - Dec:                                 Fn+BrightnessDown
+      - Monitor Off                          Fn+MonitorOff
     
     Volume:
       - Inc:                                 Fn+VolumeUp
