@@ -80,6 +80,9 @@ static const Rule rules[] = {
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+{ "mpv",                     NULL,     NULL,               0,         1,                       1,        -1 },
+{ "vlc",                     NULL,     NULL,               0,         1,                       1,        -1 },
+{ "MPlayer",                 NULL,     NULL,               0,         1,                       1,        -1 },
 /* { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 }, */
