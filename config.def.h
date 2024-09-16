@@ -4,26 +4,27 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[]   = { 5 };   /* default gap between windows in pixels, this can be customized for each tag */
+static const int startwithgaps[]    = { 0 };	/* 1 means gaps are used by default, this can be customized for each tag */
+static const unsigned int gappx[]   = { 1 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const unsigned int snap      = 20;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static const char dmenufont[]       = { "mono:pixelsize=14:antialias=true:autohint=true" };
-static const char Normfg[]      = "#ebdbb2"; /* layout indicator and status text color #acb4c2 #f5f5dc #d79921 #ebcb8b #999999 #bf616a */
+static const char Normfg[]      = "#ebcb8b"; /* layout indicator and status text color #acb4c2 #f5f5dc #d79921 #ebcb8b #999999 #bf616a */
 static const char Normbg[]      = "#1d2021"; /* bar color #011627 #011111 #111111 #073642 #222222*/
 static const char Normbd[]      = "#444444";
 static const char Selbg[]       = "#1d2021"; /* #000000 #005577*/
-static const char Selfg[]       = "#ebdbb2"; /* tag and windwo name color #eeeeee */
+static const char Selfg[]       = "#ebcb8b"; /* tag and windwo name color #eeeeee */
 static const char Selbd[]       = "#1d3b53"; /* active border color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0.0;
+/* static const unsigned int baralpha = 0xd0; */
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -70,18 +71,18 @@ static const Rule rules[] = {
 { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
-{ NULL,		                 "qtfp",   NULL,               0,	      1,			                     -1 },
-{ "mpv",                     NULL,     NULL,               0,         1,                       1,        -1 },
-{ "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
-{ "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
-{ NULL,		                 "pad",    NULL,               SPTAG(0),  1,			                     -1 },
-{ NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
-{ "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
+{ NULL,		             "qtfp",   NULL,               0,	      1,		                 -1 },
+{ NULL,		             "pad",    NULL,               SPTAG(0),  1,			         -1 },
+{ NULL,		             "nnn",    NULL,               SPTAG(1),  1,			         -1 },
+{ "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                         -1 },
 { NULL,                      "music",  NULL,               SPTAG(3),  1,                       0,        -1 },
-{ "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
+{ "kile",                    NULL,     NULL,               1 << 3,    0,	                         -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+/* { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 }, */
 };
 
 /* layout(s) */
