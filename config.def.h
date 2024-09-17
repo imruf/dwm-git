@@ -68,7 +68,8 @@ static const Rule rules[] = {
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
-{ "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
+/* { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 }, */
+{ "LibreWolf",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 { NULL,		             "qtfp",   NULL,               0,	      1,		                 -1 },
@@ -121,7 +122,8 @@ static const Layout layouts[] = {
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
-static const char *bcmd2[] = { "firefox", NULL };
+static const char *bcmd2[] = { "librewolf", NULL };
+/* static const char *bcmd2[] = { "firefox", NULL }; */
 static const char *bcmd3[] = { TERMINAL, "-e", "elinks", "about://blank", NULL };
 static const char *dbang[] = { "dbang", NULL };
 static const char *dweb[] = { "dweb", NULL };
