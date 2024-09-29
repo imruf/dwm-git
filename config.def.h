@@ -69,7 +69,7 @@ static const Rule rules[] = {
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
 /* { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 }, */
-{ "LibreWolf",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
+{ "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 { NULL,		             "qtfp",   NULL,               0,	      1,		                 -1 },
@@ -184,15 +184,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_KP_Add,        moveresize,     {.v = "0x 0y 0w 25h" } },
 	{ MODKEY|ControlMask,           XK_KP_Add,        moveresizeedge, {.v = "b"} },
 	{ MODKEY|ControlMask|ShiftMask, XK_KP_Add,        moveresizeedge, {.v = "B"} },
-	{ MODKEY,                       XK_KP_Divide,       moveresize,     {.v = "-25x 0y 0w 0h" } },
-	{ MODKEY|ShiftMask,             XK_KP_Divide,       moveresize,     {.v = "0x 0y -25w 0h" } },
-	{ MODKEY|ControlMask,           XK_KP_Divide,       moveresizeedge, {.v = "l"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_KP_Divide,       moveresizeedge, {.v = "L"} },
+	{ MODKEY,                       XK_KP_Divide,     moveresize,     {.v = "-25x 0y 0w 0h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Divide,     moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ControlMask,           XK_KP_Divide,     moveresizeedge, {.v = "l"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Divide,     moveresizeedge, {.v = "L"} },
 	{ MODKEY,                       XK_KP_Multiply,   moveresize,     {.v = "25x 0y 0w 0h" } },
 	{ MODKEY|ShiftMask,             XK_KP_Multiply,   moveresize,     {.v = "0x 0y 25w 0h" } },
 	{ MODKEY|ControlMask,           XK_KP_Multiply,   moveresizeedge, {.v = "r"} },
 	{ MODKEY|ControlMask|ShiftMask, XK_KP_Multiply,   moveresizeedge, {.v = "R"} },
-    { MODKEY,                       XK_KP_Enter,        movethrow,      {.ui = DIR_C  }},
+        { MODKEY,                       XK_KP_Enter,      movethrow,      {.ui = DIR_C  }},
     /* { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
        { MODKEY,                       KP_2,             movethrow,      {.ui = DIR_S  }},
        { MODKEY,                       XK_a,             movethrow,      {.ui = DIR_W  }},
@@ -214,8 +214,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                             8)
 	{ MODKEY,                       XK_Tab,           view,           {0} },
 	{ ControlMask,                  XK_space,         view,           {0} },
-    { MODKEY|ControlMask,           XK_l,             shiftview,      { .i = +1 } },
-    { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
+        { MODKEY|ControlMask,           XK_l,             shiftview,      { .i = +1 } },
+        { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
 /* power */
 	{ MODKEY|ShiftMask,             XK_e,              quit,          {0} },
 	{ MOD2|ShiftMask,               XK_e,              quit,          {1} }, 
@@ -227,7 +227,7 @@ static Key keys[] = {
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
 /* files */
-	{ MOD2, 			            XK_o,             togglescratch,  {.ui = 1 } },
+	{ MOD2, 			XK_o,             togglescratch,  {.ui = 1 } },
 /* browsers */
 	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
@@ -239,28 +239,28 @@ static Key keys[] = {
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 /* scratch pads */
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
-	{ MODKEY, 			            XK_o,             togglescratch,  {.ui = 1 } },
-	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 2 } },
+	{ MODKEY, 			XK_o,             togglescratch,  {.ui = 1 } },
+	{ MOD2, 			XK_n,             togglescratch,  {.ui = 2 } },
 	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 3 } },
 /* gapps */
-	{ ControlMask,                       XK_KP_Subtract,  setgaps,        {.i = -5 } },
-	{ ControlMask,                       XK_KP_Add,       setgaps,        {.i = +5 } },
-	{ ControlMask|ShiftMask,             XK_KP_Enter,     setgaps,        {.i = GAP_RESET } },
-	{ ControlMask|ShiftMask,             XK_KP_Divide,    setgaps,        {.i = GAP_TOGGLE} },
+	{ ControlMask,                  XK_KP_Subtract,  setgaps,        {.i = -5 } },
+	{ ControlMask,                  XK_KP_Add,       setgaps,        {.i = +5 } },
+	{ ControlMask|ShiftMask,        XK_KP_Enter,     setgaps,        {.i = GAP_RESET } },
+	{ ControlMask|ShiftMask,        XK_KP_Divide,    setgaps,        {.i = GAP_TOGGLE} },
 /* exec cmd */
 	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
 	{ 0,                            XF86XK_Calculator, spawn,         CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
 /* media keys */
-    { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
-    { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
-    { 0,                     XF86XK_ScreenSaver,       spawn,         {.v = broff } },
-    { 0,                     XF86XK_AudioLowerVolume,  spawn,         {.v = downvol } },
-    { 0,                     XF86XK_AudioMute,         spawn,         {.v = mutevol } },
-    { 0,                     XF86XK_AudioRaiseVolume,  spawn,         {.v = upvol   } },
+        { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
+        { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
+        { 0,                     XF86XK_ScreenSaver,       spawn,         {.v = broff } },
+        { 0,                     XF86XK_AudioLowerVolume,  spawn,         {.v = downvol } },
+        { 0,                     XF86XK_AudioMute,         spawn,         {.v = mutevol } },
+        { 0,                     XF86XK_AudioRaiseVolume,  spawn,         {.v = upvol   } },
 /* screen shots */
-    { 0,                     XK_Print,                 spawn,   CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
-    { ShiftMask,             XK_Print,                 spawn,   CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
-    { ControlMask,           XK_Print,                 spawn,   CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
+        { 0,                     XK_Print,                 spawn,   CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
+        { ShiftMask,             XK_Print,                 spawn,   CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
+        { ControlMask,           XK_Print,                 spawn,   CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
 
 };
 
