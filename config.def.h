@@ -68,7 +68,7 @@ static const Rule rules[] = {
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
-/* { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 }, */
+{ "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 },
 { "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
@@ -176,21 +176,24 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,             view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,             tag,            {.ui = ~0 } },
 /* float management */
+	/* move float up, down, left, right */
 	{ MODKEY,                       XK_KP_Subtract,   moveresize,     {.v = "0x -25y 0w 0h" } },
-	{ MODKEY|ShiftMask,             XK_KP_Subtract,   moveresize,     {.v = "0x 0y 0w -25h" } },
-	{ MODKEY|ControlMask,           XK_KP_Subtract,   moveresizeedge, {.v = "t"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_KP_Subtract,   moveresizeedge, {.v = "T"} },
 	{ MODKEY,                       XK_KP_Add,        moveresize,     {.v = "0x 25y 0w 0h" } },
-	{ MODKEY|ShiftMask,             XK_KP_Add,        moveresize,     {.v = "0x 0y 0w 25h" } },
-	{ MODKEY|ControlMask,           XK_KP_Add,        moveresizeedge, {.v = "b"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_KP_Add,        moveresizeedge, {.v = "B"} },
 	{ MODKEY,                       XK_KP_Divide,     moveresize,     {.v = "-25x 0y 0w 0h" } },
-	{ MODKEY|ShiftMask,             XK_KP_Divide,     moveresize,     {.v = "0x 0y -25w 0h" } },
-	{ MODKEY|ControlMask,           XK_KP_Divide,     moveresizeedge, {.v = "l"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_KP_Divide,     moveresizeedge, {.v = "L"} },
 	{ MODKEY,                       XK_KP_Multiply,   moveresize,     {.v = "25x 0y 0w 0h" } },
+	/* resize float up, down, left, right */
+	{ MODKEY|ShiftMask,             XK_KP_Subtract,   moveresize,     {.v = "0x 0y 0w -25h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Add,        moveresize,     {.v = "0x 0y 0w 25h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Divide,     moveresize,     {.v = "0x 0y -25w 0h" } },
 	{ MODKEY|ShiftMask,             XK_KP_Multiply,   moveresize,     {.v = "0x 0y 25w 0h" } },
+	/* move float to edge */
+	{ MODKEY|ControlMask,           XK_KP_Subtract,   moveresizeedge, {.v = "t"} },
+	{ MODKEY|ControlMask,           XK_KP_Add,        moveresizeedge, {.v = "b"} },
+	{ MODKEY|ControlMask,           XK_KP_Divide,     moveresizeedge, {.v = "l"} },
 	{ MODKEY|ControlMask,           XK_KP_Multiply,   moveresizeedge, {.v = "r"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Subtract,   moveresizeedge, {.v = "T"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Add,        moveresizeedge, {.v = "B"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Divide,     moveresizeedge, {.v = "L"} },
 	{ MODKEY|ControlMask|ShiftMask, XK_KP_Multiply,   moveresizeedge, {.v = "R"} },
         { MODKEY,                       XK_KP_Enter,      movethrow,      {.ui = DIR_C  }},
     /* { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
