@@ -221,7 +221,6 @@ static Key keys[] = {
         { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
 /* power */
 	{ MODKEY|ShiftMask,             XK_e,              quit,          {0} },
-	{ MOD2|ShiftMask,               XK_e,              quit,          {1} }, 
 	{ MODKEY|ShiftMask,             XK_x,              spawn,         {.v = pmenu } },
 	{ MODKEY|ShiftMask,             XK_s,              spawn,         {.v = ips } },
 	{ MODKEY|ShiftMask,             XK_r,              spawn,         {.v = ipr } },
