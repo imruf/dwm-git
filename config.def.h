@@ -68,7 +68,7 @@ static const Rule rules[] = {
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
-{ "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 },
+/* { "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 }, */
 { "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
@@ -81,12 +81,9 @@ static const Rule rules[] = {
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
-{ "mpv",                     NULL,     NULL,               0,         1,                       1,        -1 },
-{ "vlc",                     NULL,     NULL,               0,         1,                       1,        -1 },
-{ "MPlayer",                 NULL,     NULL,               0,         1,                       1,        -1 },
-/* { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
-{ "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 }, */
+{ "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 };
 
 /* layout(s) */
