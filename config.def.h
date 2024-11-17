@@ -84,6 +84,7 @@ static const Rule rules[] = {
 { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "jamesdsp",                "jamesdsp", NULL,             0,         1,                       1,        -1 },
 };
 
 /* layout(s) */
@@ -130,6 +131,7 @@ static const char *ipr[] = { "dwmexit", "reboot", NULL };
 static const char *iph[] = { "dwmexit", "shutdown", NULL };
 static const char *ipl[] = { "dwmexit", "lock", NULL };
 static const char *pmenu[] = { "powermenu", NULL };
+static const char *ssmenu[] = { "maimpick", NULL };
 static const char *upvol[] = { "volkeys", "up", NULL };
 static const char *downvol[] = { "volkeys", "down", NULL };
 static const char *mutevol[] = { "volkeys", "mute", NULL };
@@ -257,9 +259,7 @@ static Key keys[] = {
         { 0,                     XF86XK_AudioMute,         spawn,         {.v = mutevol } },
         { 0,                     XF86XK_AudioRaiseVolume,  spawn,         {.v = upvol   } },
 /* screen shots */
-        { 0,                     XK_Print,                 spawn,   CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
-        { ShiftMask,             XK_Print,                 spawn,   CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
-        { ControlMask,           XK_Print,                 spawn,   CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
+        { 0,                     XK_Print,   		   spawn,         {.v = ssmenu } },
 
 };
 

@@ -156,6 +156,4 @@ App Bindings
       - ncmpcpp:                             Super+m
     
     Screenshot:
-      - FullScreen:                          prtsc
-      - ActiveWindow:                        Shift+prtsc
-      - Selection:                           Ctrl+prtsc
+      - dmenu-select:                        prtsc
