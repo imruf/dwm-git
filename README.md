@@ -17,7 +17,6 @@ Bar
 ---
 
     Bar toggle:                              Alt+b
-    Reload Module:                           Ctrl+;
 
 Window
 ---
