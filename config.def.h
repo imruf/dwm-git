@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 /* Constants */
 #define TERMINAL "st"
+#define Z_TERMINAL "wezterm"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -119,6 +120,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
+static const char *termcmd2[]  = { Z_TERMINAL, NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
 static const char *bcmd2[] = { "librewolf", NULL };
 /* static const char *bcmd2[] = { "firefox", NULL }; */
@@ -140,11 +142,6 @@ static const char *brdec[] = { "blkeys", "down", NULL };
 static const char *broff[] = { "blkeys", "off", NULL };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
-/* static const char *rbang[] = { "rbang", NULL }; */
-/* static const char *roficmd[] = { "rofi", "-show", "combi", NULL }; */
-/* static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL }; */
-/* static const char *fcmd2[] = { "pcmanfm", NULL }; */
-/* static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL }; */
 
 #include <X11/XF86keysym.h>
 #include "movestack.c"
@@ -227,6 +224,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,              spawn,         {.v = ipl } },
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_slash,         spawn,          {.v = termcmd2 } },
 /* files */
 	{ MOD2, 			XK_o,             togglescratch,  {.ui = 1 } },
 /* browsers */
