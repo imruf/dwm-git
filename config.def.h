@@ -45,16 +45,18 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "pad", "-g", "110x18", "-e", "pad_tmux", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "130x22", "-e", "nnn_tmux", NULL };
-const char *spcmd3[] = {"kate", "-s", "notes", NULL };
-const char *spcmd4[] = {TERMINAL, "-n", "music", "-g", "110x18", "-e", "ncmpcpp", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn", NULL };
+const char *spcmd3[] = {TERMINAL, "-n", "YAZI", "-g", "130x22", "-e", "yazi", NULL };
+const char *spcmd4[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
+const char *spcmd5[] = {"kate", "-s", "notes", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
-	{"pad",      spcmd1},
-	{"nnn",         spcmd2},
-	{"kate",        spcmd3},
-	{"music",     spcmd4},
+	{"PAD",      spcmd1},
+	{"NNN",      spcmd2},
+	{"YAZI",     spcmd3},
+	{"MUSIC",    spcmd4},
+	{"KATE",     spcmd5},
 };
 
 /* tagging */
@@ -69,23 +71,32 @@ static const Rule rules[] = {
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
-/* { "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 }, */
+{ "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
+
+/* browsers */
 { "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
-{ "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
-{ NULL,		             "qtfp",   NULL,               0,	      1,		                 -1 },
-{ NULL,		             "pad",    NULL,               SPTAG(0),  1,			         -1 },
-{ NULL,		             "nnn",    NULL,               SPTAG(1),  1,			         -1 },
-{ "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                         -1 },
-{ NULL,                      "music",  NULL,               SPTAG(3),  1,                       0,        -1 },
-{ "kile",                    NULL,     NULL,               1 << 3,    0,	                         -1 },
+{ "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 },
+{ NULL,		                   "qtfp",   NULL,               0,	        1,		                             -1 },
+
+/* office */
+{ "kile",                    NULL,     NULL,               1 << 3,    0,	                               -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+
+/* media */
 { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "jamesdsp",                "jamesdsp", NULL,             0,         1,                       1,        -1 },
+
+/* scratchpads */
+{ NULL,		                   "PAD",    NULL,               SPTAG(0),  1,			                           -1 },
+{ NULL,		                   "NNN",    NULL,               SPTAG(1),  1,			                           -1 },
+{ NULL,		                   "YAZI",   NULL,               SPTAG(2),  1,			                           -1 },
+{ NULL,                      "MUSIC",  NULL,               SPTAG(3),  1,                       0,        -1 },
+{ "kate",                    NULL,     "notes: notes.md ", SPTAG(4),  1,	                               -1 },
 };
 
 /* layout(s) */
@@ -225,8 +236,6 @@ static Key keys[] = {
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_slash,         spawn,          {.v = termcmd2 } },
-/* files */
-	{ MOD2, 			XK_o,             togglescratch,  {.ui = 1 } },
 /* browsers */
 	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
@@ -238,9 +247,11 @@ static Key keys[] = {
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 /* scratch pads */
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
-	{ MODKEY, 			XK_o,             togglescratch,  {.ui = 1 } },
-	{ MOD2, 			XK_n,             togglescratch,  {.ui = 2 } },
+	{ MOD2, 			                  XK_n,             togglescratch,  {.ui = 4 } },
 	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 3 } },
+     /* files */
+	{ MOD2, 			                  XK_o,             togglescratch,  {.ui = 1 } },
+	{ MODKEY, 			                XK_o,             togglescratch,  {.ui = 2 } },
 /* gapps */
 	{ ControlMask,                  XK_KP_Subtract,  setgaps,        {.i = -5 } },
 	{ ControlMask,                  XK_KP_Add,       setgaps,        {.i = +5 } },
