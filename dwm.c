@@ -72,7 +72,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
@@ -940,7 +940,7 @@ drawbar(Monitor *m)
 					continue;
 				tw = MIN(m->sel == c ? w : mw, TEXTW(c->name));
 
-				drw_setscheme(drw, scheme[m == selmon && m->sel == c ? SchemeSel : SchemeNorm]);
+				drw_setscheme(drw, scheme[m == selmon && m->sel == c ? SchemeTitle : SchemeNorm]);
 				if (tw > lrpad / 2)
 					drw_text(drw, x, 0, tw, bh, lrpad / 2, c->name, 0);
 				if (c->isfloating)

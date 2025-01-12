@@ -19,6 +19,9 @@ static const char Normbd[]      = "#444444";
 static const char Selbg[]       = "#1d2021"; /* #000000 #005577*/
 static const char Selfg[]       = "#ebcb8b"; /* tag and windwo name color #eeeeee */
 static const char Selbd[]       = "#1d3b53"; /* active border color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
+static const char Titfg[]      = "#d79921"; /* Title indicator and status text color #acb4c2 #f5f5dc #d79921 #ebcb8b #999999 #bf616a */
+static const char Titbg[]      = "#011627"; /* bar color #011627 #011111 #111111 #073642 #222222*/
+static const char Titbd[]      = "#444444";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -31,6 +34,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] =	 { Normfg, Normbg, Normbd },
 	[SchemeSel]  =	 { Selfg, Selbg, Selbd },
+	[SchemeTitle]  = { Titfg, Titbg, Titbd },
 /*	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, */
 /*	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  }, */
 };
@@ -250,8 +254,8 @@ static Key keys[] = {
 	{ MOD2, 			                  XK_n,             togglescratch,  {.ui = 4 } },
 	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 3 } },
      /* files */
-	{ MOD2, 			                  XK_o,             togglescratch,  {.ui = 1 } },
-	{ MODKEY, 			                XK_o,             togglescratch,  {.ui = 2 } },
+	{ MOD2, 			                  XK_o,             togglescratch,  {.ui = 2 } },
+	{ MODKEY, 			                XK_o,             togglescratch,  {.ui = 1 } },
 /* gapps */
 	{ ControlMask,                  XK_KP_Subtract,  setgaps,        {.i = -5 } },
 	{ ControlMask,                  XK_KP_Add,       setgaps,        {.i = +5 } },
