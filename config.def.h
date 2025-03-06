@@ -51,14 +51,14 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn", NULL };
-const char *spcmd3[] = {TERMINAL, "-n", "YAZI", "-g", "130x22", "-e", "yazi", NULL };
+const char *spcmd3[] = {TERMINAL, "-n", "FPRE", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd4[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
 const char *spcmd5[] = {"kate", "-s", "notes", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"PAD",      spcmd1},
 	{"NNN",      spcmd2},
-	{"YAZI",     spcmd3},
+	{"FPRE",     spcmd3},
 	{"MUSIC",    spcmd4},
 	{"KATE",     spcmd5},
 };
@@ -98,7 +98,7 @@ static const Rule rules[] = {
 /* scratchpads */
 { NULL,		                   "PAD",    NULL,               SPTAG(0),  1,			                           -1 },
 { NULL,		                   "NNN",    NULL,               SPTAG(1),  1,			                           -1 },
-{ NULL,		                   "YAZI",   NULL,               SPTAG(2),  1,			                           -1 },
+{ NULL,		                   "FPRE",   NULL,               SPTAG(2),  1,			                           -1 },
 { NULL,                      "MUSIC",  NULL,               SPTAG(3),  1,                       0,        -1 },
 { "kate",                    NULL,     "notes: notes.md ", SPTAG(4),  1,	                               -1 },
 };
