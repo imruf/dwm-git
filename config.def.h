@@ -50,8 +50,8 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn", NULL };
-const char *spcmd3[] = {TERMINAL, "-n", "FPRE", "-g", "130x22", "-e", "nnn_tmux", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn_tmux", NULL };
+const char *spcmd3[] = {TERMINAL, "-n", "FPRE", "-g", "130x22", "-e", "nnn", NULL };
 const char *spcmd4[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
 const char *spcmd5[] = {"kate", "-s", "notes", NULL };
 static Sp scratchpads[] = {
@@ -264,7 +264,7 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_KP_Divide,    setgaps,        {.i = GAP_TOGGLE} },
 /* exec cmd */
 	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
-	{ 0,                            XF86XK_Calculator, spawn,         CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
+	{ 0,                            XF86XK_Calculator, spawn,         CMD("= -- -l 3 -c") }, /* menu-calc-wayland script */
 /* media keys */
         { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
         { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
