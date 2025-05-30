@@ -264,7 +264,7 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_KP_Divide,    setgaps,        {.i = GAP_TOGGLE} },
 /* exec cmd */
 	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
-	{ 0,                            XF86XK_Calculator, spawn,         CMD("= -- -l 3 -c") }, /* menu-calc-wayland script */
+	{ 0,                            XF86XK_Calculator, spawn,         CMD("dmenu -l 2 -C -c") },
 /* media keys */
         { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
         { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
